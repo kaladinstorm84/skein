@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-10-07 — GitHub repo identity
+
+README now uses `kaladinstorm84/skein`: Actions badge, clone URL, and CI links.
+
+## 2026-10-07 — GitHub Actions build
+
+Added `.github/workflows/build.yml`: on push/PR/dispatch, Ubuntu runs `go test ./...`, `go vet`, Python `vector_runner.py`, then fails if `generate_vectors.py` drifts from committed `vectors/`. After tests, cross-compiles stripped linux/windows/darwin binaries and uploads them as artifacts. Documented in README. `.gitattributes` pins vector JSON and workflow YAML to LF.
+
 ## 2026-10-07 — README UML
 
 Added an object-model class diagram and a Phase 1 land-loop sequence diagram to `README.md` (Mermaid, GitHub-native). Class diagram follows spec kinds: claim subtypes, witness, proposal, weave-proposal, weave, named ref, envelope, derived checkout.

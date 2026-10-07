@@ -1,10 +1,12 @@
 # Skein
 
+[![Build](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml/badge.svg)](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml)
+
 A version control system for agentic development. **It is not Git.**
 
 History is a graph of **claims**: decisions with evidence, policy, and a human gate. Code is what you get after a land is admitted. Agents work in bounded checkouts; humans approve an exact WeaveProposal, not a generic diff.
 
-This repository is **Spec 0.7** plus a **Phase 1 CLI** written in Go.
+This repository is **Spec 0.7** plus a **Phase 1 CLI** written in Go. CI is [`.github/workflows/build.yml`](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml): tests, spec vectors, and cross-compiled binaries.
 
 ```text
 thread → checkout → patch → test → propose → approve → land
@@ -141,6 +143,8 @@ Later-phase objects are **parsed and refused**. They are never treated as trustw
 Requires [Go 1.22+](https://go.dev/dl/).
 
 ```text
+git clone https://github.com/kaladinstorm84/skein.git
+cd skein
 go test ./... -count=1
 go build -trimpath -ldflags="-s -w" -o skein.exe ./cmd/skein
 ```
@@ -194,6 +198,8 @@ Stripped sizes (2026-10-07): windows/amd64 **3.56 MiB**, linux/arm64 **3.19 MiB*
 
 Bootstrap argv `true` is a built-in no-op so integration witnesses work on Windows (there is no `true` binary).
 
+On push, pull request, and manual dispatch, [GitHub Actions](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml) runs `go test ./...`, `go vet ./...`, `python tools/vector_runner.py`, regenerates `vectors/` and fails if they drift, then cross-compiles stripped binaries for linux/amd64, linux/arm64, windows/amd64, darwin/amd64, and darwin/arm64 and uploads them as artifacts.
+
 ## Specification
 
 Skein is specified as a Word narrative plus sidecar files. Two independent implementations must agree on hashed bytes: the Python spec oracle in `tools/` and this Go CLI.
@@ -233,4 +239,5 @@ vectors/            Normative fixtures
 abi/phase1.md       Commands, agent verbs, errors
 tools/              Python spec oracle
 demo.ps1            End-to-end land loop
+.github/workflows/  Build and test (GitHub Actions)
 ```

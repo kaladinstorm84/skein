@@ -1,0 +1,103 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CGO_ENABLED: "0"
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Go test
+        run: go test ./... -count=1 -v
+
+      - name: Go vet
+        run: go vet -v ./...
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Spec oracle
+        run: |
+          python -m pip install -r requirements.txt
+          python -u tools/vector_runner.py
+
+      - name: Vectors match generator
+        run: |
+          python -u tools/generate_vectors.py
+          git add -- vectors
+          git diff --cached --exit-code -- vectors
+
+  build:
+    name: ${{ matrix.artifact }}
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - goos: linux
+            goarch: amd64
+            artifact: skein-linux-amd64
+          - goos: linux
+            goarch: arm64
+            artifact: skein-linux-arm64
+          - goos: windows
+            goarch: amd64
+            artifact: skein-windows-amd64.exe
+          - goos: darwin
+            goarch: amd64
+            artifact: skein-darwin-amd64
+          - goos: darwin
+            goarch: arm64
+            artifact: skein-darwin-arm64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          go build -v -trimpath -ldflags="-s -w" -o "${{ matrix.artifact }}" ./cmd/skein
+          ls -l "${{ matrix.artifact }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.artifact }}
+          if-no-files-found: error
+          retention-days: 14
