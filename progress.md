@@ -1,5 +1,9 @@
 # Progress
 
+## 2026-10-07 — Fix ignored cmd/skein
+
+GitHub builds failed with `cmd/skein: directory not found` because `.gitignore` listed `skein`, which matches any path named `skein` (including `cmd/skein`). The ignore is now root-only (`/skein`, `/skein-*`). `cmd/skein/main.go` can be tracked and pushed.
+
 ## 2026-10-07 — GitHub repo identity
 
 README now uses `kaladinstorm84/skein`: Actions badge, clone URL, and CI links.

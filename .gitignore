@@ -1,6 +1,11 @@
-skein.exe
-skein
-skein-linux-arm64
+# Built CLI at repo root only — a bare "skein" rule also hides cmd/skein.
+/skein
+/skein.exe
+/skein-*
 *.exe
+
 .skein/
 .skein-checkout.json
+
+__pycache__/
+*.pyc
