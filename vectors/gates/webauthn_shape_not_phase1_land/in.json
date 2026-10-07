@@ -1,0 +1,4 @@
+{
+  "op": "gate_phase1_accepts_algorithm",
+  "algorithm": "webauthn"
+}

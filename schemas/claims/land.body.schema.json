@@ -1,0 +1,20 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/land.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "weave_proposal_id",
+    "proposal_id",
+    "gate_id",
+    "parent_weave_id",
+    "state_root"
+  ],
+  "properties": {
+    "weave_proposal_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "proposal_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gate_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "parent_weave_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

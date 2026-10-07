@@ -1,0 +1,10 @@
+{
+  "op": "evaluate_policy",
+  "scale": "trivial",
+  "evidence": {
+    "patch": true,
+    "test_witness": true,
+    "integration_witness_pass": true,
+    "land_gate": true
+  }
+}

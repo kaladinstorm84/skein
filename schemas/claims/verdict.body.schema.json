@@ -1,0 +1,14 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/verdict.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "reason"],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": ["ready", "abandon", "scale_down", "reject"]
+    },
+    "reason": { "type": "string", "minLength": 1 }
+  }
+}

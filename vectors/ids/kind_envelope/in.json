@@ -1,0 +1,14 @@
+{
+  "op": "object_id",
+  "kind": "envelope",
+  "payload": {
+    "schema_version": 1,
+    "object_kind": "claim",
+    "object_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "issuer_id": "human:alice",
+    "issuer_class": "human",
+    "auth_method": "development-key",
+    "signature": "00",
+    "issued_at": "2026-10-07T11:00:00.000Z"
+  }
+}

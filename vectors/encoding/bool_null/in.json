@@ -1,0 +1,8 @@
+{
+  "op": "canonicalize",
+  "value": {
+    "t": true,
+    "f": false,
+    "n": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "canonical_json": "canonical-json.md",
+  "hashed_kinds": {
+    "claim": "claim.schema.json",
+    "witness": "witness.schema.json",
+    "proposal": "proposal.schema.json",
+    "weave-proposal": "weave-proposal.schema.json",
+    "weave": "weave.schema.json",
+    "tree": "tree.schema.json",
+    "policy": "policy.schema.json",
+    "envelope": "envelope.schema.json"
+  },
+  "non_hashed": {
+    "named-ref": "named-ref.schema.json",
+    "sync-packet": "sync-packet.schema.json",
+    "repository": "repository.schema.json"
+  },
+  "claim_catalog": "claims/catalog.json",
+  "bootstrap_policy": "policy/bootstrap.v1.json"
+}

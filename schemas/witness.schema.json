@@ -1,0 +1,11 @@
+{
+  "$id": "https://skein.dev/schema/v1/witness.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein witness payload (kind witness)",
+  "oneOf": [
+    { "$ref": "witnesses/context.schema.json" },
+    { "$ref": "witnesses/command.schema.json" },
+    { "$ref": "witnesses/review.schema.json" },
+    { "$ref": "witnesses/integration.schema.json" }
+  ]
+}

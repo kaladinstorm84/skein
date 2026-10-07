@@ -1,0 +1,15 @@
+{
+  "op": "tree_root",
+  "entries": [
+    {
+      "path": "b.txt",
+      "kind": "file",
+      "blob_id": "fbc26fdb074ab8576b0144e20c92a6af7cfb522c9bd577e28cf3b267a2e0ec4e"
+    },
+    {
+      "path": "a.txt",
+      "kind": "file",
+      "blob_id": "fbc26fdb074ab8576b0144e20c92a6af7cfb522c9bd577e28cf3b267a2e0ec4e"
+    }
+  ]
+}

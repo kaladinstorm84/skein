@@ -1,0 +1,34 @@
+{
+  "op": "why",
+  "path": "src/main.rs",
+  "lands": [
+    {
+      "land_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "patch_paths": [
+        "src/main.rs"
+      ],
+      "parents": [
+        "story-1"
+      ]
+    },
+    {
+      "land_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "patch_paths": [
+        "src/other.rs"
+      ],
+      "parents": [
+        "story-2"
+      ]
+    },
+    {
+      "land_id": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "patch_paths": [
+        "src/main.rs"
+      ],
+      "parents": [
+        "story-3",
+        "gate-3"
+      ]
+    }
+  ]
+}

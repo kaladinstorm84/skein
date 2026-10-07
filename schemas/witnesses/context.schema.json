@@ -1,0 +1,41 @@
+{
+  "$id": "https://skein.dev/schema/v1/witnesses/context.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "source_weave_id",
+    "source_state_root",
+    "selected_claim_ids",
+    "reach",
+    "enforcement"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "context" },
+    "source_weave_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "source_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "selected_claim_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "reach": {
+      "type": "string",
+      "enum": ["projection-only", "checkout-readable", "tools"]
+    },
+    "enforcement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mechanism"],
+      "properties": {
+        "mechanism": { "type": "string", "minLength": 1 },
+        "sandbox_version": { "type": "string" },
+        "filesystem_mode": { "type": "string" },
+        "network_mode": { "type": "string" },
+        "tool_allowlist_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "op": "canonicalize",
+  "value": {
+    "b": 1,
+    "a": 2
+  }
+}

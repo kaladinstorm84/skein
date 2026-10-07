@@ -1,0 +1,21 @@
+{
+  "op": "apply_hunks",
+  "text": "a\nb\nc\n",
+  "line_ending": "lf",
+  "hunks": [
+    {
+      "start_line": 0,
+      "end_line": 1,
+      "lines": [
+        "A"
+      ]
+    },
+    {
+      "start_line": 2,
+      "end_line": 3,
+      "lines": [
+        "C"
+      ]
+    }
+  ]
+}

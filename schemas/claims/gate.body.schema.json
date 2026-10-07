@@ -1,0 +1,26 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/gate.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["algorithm", "weave_proposal_id", "credential_id", "name"],
+  "properties": {
+    "algorithm": { "type": "string", "enum": ["development-key", "webauthn"] },
+    "weave_proposal_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "credential_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "signature": { "type": "string" },
+    "client_data_json": { "type": "string" },
+    "authenticator_data": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "algorithm": { "const": "development-key" } } },
+      "then": { "required": ["signature"] }
+    },
+    {
+      "if": { "properties": { "algorithm": { "const": "webauthn" } } },
+      "then": { "required": ["signature", "client_data_json", "authenticator_data"] }
+    }
+  ]
+}

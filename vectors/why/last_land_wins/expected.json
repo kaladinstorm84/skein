@@ -1,0 +1,8 @@
+{
+  "path": "src/main.rs",
+  "land_id": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "parents": [
+    "story-3",
+    "gate-3"
+  ]
+}

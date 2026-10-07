@@ -1,0 +1,15 @@
+{
+  "op": "effective_scale",
+  "assertions": [
+    {
+      "scale": "standard",
+      "issuer_class": "human",
+      "valid": true
+    },
+    {
+      "scale": "trivial",
+      "issuer_class": "agent",
+      "valid": true
+    }
+  ]
+}

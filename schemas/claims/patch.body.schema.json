@@ -1,0 +1,94 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/patch.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "baseline_weave_id",
+    "baseline_state_root",
+    "context_witness_id",
+    "operations"
+  ],
+  "properties": {
+    "baseline_weave_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "baseline_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "context_witness_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "operations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/operation" }
+    }
+  },
+  "$defs": {
+    "operation": {
+      "oneOf": [
+        { "$ref": "#/$defs/add" },
+        { "$ref": "#/$defs/remove" },
+        { "$ref": "#/$defs/rename" },
+        { "$ref": "#/$defs/edit" },
+        { "$ref": "#/$defs/replace" }
+      ]
+    },
+    "add": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "path", "blob_id"],
+      "properties": {
+        "op": { "const": "add" },
+        "path": { "type": "string", "minLength": 1 },
+        "blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "remove": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "path"],
+      "properties": {
+        "op": { "const": "remove" },
+        "path": { "type": "string", "minLength": 1 }
+      }
+    },
+    "rename": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "from", "to"],
+      "properties": {
+        "op": { "const": "rename" },
+        "from": { "type": "string", "minLength": 1 },
+        "to": { "type": "string", "minLength": 1 }
+      }
+    },
+    "edit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "path", "line_ending", "hunks"],
+      "properties": {
+        "op": { "const": "edit" },
+        "path": { "type": "string", "minLength": 1 },
+        "line_ending": { "type": "string", "enum": ["lf", "crlf"] },
+        "hunks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["start_line", "end_line", "lines"],
+            "properties": {
+              "start_line": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+              "end_line": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+              "lines": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "replace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op", "path", "blob_id"],
+      "properties": {
+        "op": { "const": "replace" },
+        "path": { "type": "string", "minLength": 1 },
+        "blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

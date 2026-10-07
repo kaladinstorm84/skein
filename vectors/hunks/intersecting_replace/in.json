@@ -1,0 +1,19 @@
+{
+  "op": "detect_hunk_conflicts",
+  "hunks": [
+    {
+      "start_line": 0,
+      "end_line": 3,
+      "lines": [
+        "a"
+      ]
+    },
+    {
+      "start_line": 2,
+      "end_line": 4,
+      "lines": [
+        "b"
+      ]
+    }
+  ]
+}

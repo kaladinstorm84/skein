@@ -1,0 +1,11 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/brief.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "text"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "text": { "type": "string", "minLength": 1 }
+  }
+}

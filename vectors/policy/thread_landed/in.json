@@ -1,0 +1,7 @@
+{
+  "op": "thread_state",
+  "flags": {
+    "building": true,
+    "landed": true
+  }
+}

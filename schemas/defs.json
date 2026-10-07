@@ -1,0 +1,59 @@
+{
+  "$id": "https://skein.dev/schema/v1/defs.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "object_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rfc3339_ms_z": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "^[^/\\\\x00]+(/[^/\\\\x00]+)*$"
+    },
+    "glob": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "principal_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "issuer_class": {
+      "type": "string",
+      "enum": ["human", "agent", "runner"]
+    },
+    "scale": {
+      "type": "string",
+      "enum": ["trivial", "standard", "deep"]
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "model": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "hex_signature": {
+      "type": "string",
+      "pattern": "^[0-9a-f]+$"
+    },
+    "base64": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]+=*$"
+    }
+  }
+}

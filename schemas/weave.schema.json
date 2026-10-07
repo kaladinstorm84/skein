@@ -1,0 +1,33 @@
+{
+  "$id": "https://skein.dev/schema/v1/weave.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein weave manifest (kind weave)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "parent",
+    "land",
+    "policy_id",
+    "policy_hash",
+    "state_root"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "parent": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      ]
+    },
+    "land": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      ]
+    },
+    "policy_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "policy_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

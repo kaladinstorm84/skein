@@ -1,0 +1,18 @@
+{
+  "op": "object_id",
+  "kind": "claim",
+  "payload": {
+    "schema_version": 1,
+    "type": "thread",
+    "parents": [],
+    "accountable_human": "human:alice",
+    "role": "author",
+    "model": "",
+    "body": {
+      "title": "First thread",
+      "kind": "feature",
+      "initial_scale": "trivial",
+      "target_weave": "main"
+    }
+  }
+}

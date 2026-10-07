@@ -1,0 +1,13 @@
+{
+  "op": "evaluate_policy",
+  "scale": "standard",
+  "evidence": {
+    "patch": true,
+    "test_witness": true,
+    "integration_witness_pass": true,
+    "land_gate": true,
+    "story": true,
+    "acceptance": true,
+    "verification_witnesses": true
+  }
+}

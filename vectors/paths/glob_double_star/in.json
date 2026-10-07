@@ -1,0 +1,5 @@
+{
+  "op": "glob_match",
+  "pattern": "src/**/x.rs",
+  "path": "src/a/b/x.rs"
+}

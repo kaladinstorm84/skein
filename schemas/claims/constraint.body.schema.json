@@ -1,0 +1,17 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/constraint.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scope", "check_kind", "mandatory", "statement"],
+  "properties": {
+    "scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "check_kind": { "type": "string", "enum": ["analyzer", "contract-test", "advisory"] },
+    "mandatory": { "type": "boolean" },
+    "statement": { "type": "string", "minLength": 1 }
+  }
+}

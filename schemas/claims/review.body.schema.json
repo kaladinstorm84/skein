@@ -1,0 +1,29 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/review.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["subject_kind", "subject_id", "reviewed_state_root", "policy_hash", "findings"],
+  "properties": {
+    "subject_kind": { "type": "string", "enum": ["patch", "proposal"] },
+    "subject_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "reviewed_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "policy_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "reviewer_model": { "type": "string", "maxLength": 256 },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["severity", "disposition", "rationale"],
+        "properties": {
+          "constraint_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "severity": { "type": "string", "enum": ["info", "advisory", "blocking"] },
+          "disposition": { "type": "string", "enum": ["pass", "fail", "waive"] },
+          "rationale": { "type": "string", "minLength": 1 },
+          "evidence_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

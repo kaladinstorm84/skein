@@ -1,0 +1,19 @@
+{
+  "$id": "https://skein.dev/schema/v1/named-ref.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Named weave pointer (not hashed). CAS compares expected_weave_id then writes weave_id.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "name", "weave_id"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "weave_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "expected_weave_id": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      ]
+    }
+  }
+}

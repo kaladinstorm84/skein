@@ -1,0 +1,7 @@
+{
+  "op": "gate_verify",
+  "algorithm": "development-key",
+  "weave_proposal_id": "6e0723b8e7d6b406309bfe57a50ebafde99091feb5d087d2f2fd66ff36c53c5d",
+  "signature": "0a8cbbbaca3aa91b3505766502df3de5c3147d6a913a3339cff0e6cfe4e7d4eb498902913b5ec4a9f8e2e79e4715e341c3f19dfe883e4775f3757fd9f89e7408",
+  "public_key": "2152f8d19b791d24453242e15f2eab6cb7cffa7b6a5ed30097960e069881db12"
+}

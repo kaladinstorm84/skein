@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "description": "Claim type catalog. Body schemas live beside this file. required_parents lists claim types, not IDs.",
+  "types": [
+    {
+      "type": "thread",
+      "repository_level": false,
+      "thread_field": "forbidden",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "thread.body.schema.json"
+    },
+    {
+      "type": "constraint",
+      "repository_level": true,
+      "thread_field": "optional",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "constraint.body.schema.json"
+    },
+    {
+      "type": "brief",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human"],
+      "required_parents": ["thread"],
+      "body_schema": "brief.body.schema.json"
+    },
+    {
+      "type": "requirement",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human"],
+      "required_parents": ["thread"],
+      "body_schema": "requirement.body.schema.json"
+    },
+    {
+      "type": "story",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human", "agent"],
+      "required_parents": ["thread"],
+      "body_schema": "story.body.schema.json"
+    },
+    {
+      "type": "acceptance",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human", "agent"],
+      "required_parents": ["story"],
+      "body_schema": "acceptance.body.schema.json"
+    },
+    {
+      "type": "scale_assertion",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human", "agent"],
+      "required_parents": ["thread"],
+      "body_schema": "scale_assertion.body.schema.json"
+    },
+    {
+      "type": "patch",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human", "agent"],
+      "required_parents": ["thread"],
+      "body_schema": "patch.body.schema.json"
+    },
+    {
+      "type": "review",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human", "agent"],
+      "required_parents": [],
+      "body_schema": "review.body.schema.json"
+    },
+    {
+      "type": "verdict",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human"],
+      "required_parents": ["thread"],
+      "body_schema": "verdict.body.schema.json"
+    },
+    {
+      "type": "land",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["runner"],
+      "required_parents": ["gate"],
+      "body_schema": "land.body.schema.json"
+    },
+    {
+      "type": "gate",
+      "repository_level": false,
+      "thread_field": "required",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "gate.body.schema.json"
+    },
+    {
+      "type": "retract",
+      "repository_level": false,
+      "thread_field": "optional",
+      "issuer_class": ["human"],
+      "required_parents": ["land"],
+      "body_schema": "retract.body.schema.json"
+    },
+    {
+      "type": "redact",
+      "repository_level": true,
+      "thread_field": "optional",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "redact.body.schema.json"
+    },
+    {
+      "type": "key",
+      "repository_level": true,
+      "thread_field": "forbidden",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "key.body.schema.json"
+    },
+    {
+      "type": "policy_update",
+      "repository_level": true,
+      "thread_field": "forbidden",
+      "issuer_class": ["human"],
+      "required_parents": [],
+      "body_schema": "policy_update.body.schema.json"
+    }
+  ]
+}

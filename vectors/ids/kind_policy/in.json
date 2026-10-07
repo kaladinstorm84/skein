@@ -1,0 +1,93 @@
+{
+  "op": "object_id",
+  "kind": "policy",
+  "payload": {
+    "schema_version": 1,
+    "policy_id": "skein.bootstrap.v1",
+    "glob_grammar": "skein.glob.v1",
+    "gate_reuse": "refuse",
+    "scales": {
+      "trivial": {
+        "patch": true,
+        "test_witness": true,
+        "integration_witness": true,
+        "land_gate": true,
+        "story": false,
+        "acceptance": false,
+        "verification_witnesses": false,
+        "independent_review": false,
+        "adversarial_witness": false,
+        "brief_or_requirement": false,
+        "readiness_gate": false,
+        "second_human_land_signer": false
+      },
+      "standard": {
+        "patch": true,
+        "test_witness": true,
+        "integration_witness": true,
+        "land_gate": true,
+        "story": true,
+        "acceptance": true,
+        "verification_witnesses": true,
+        "independent_review": true,
+        "adversarial_witness": false,
+        "brief_or_requirement": false,
+        "readiness_gate": false,
+        "second_human_land_signer": false
+      },
+      "deep": {
+        "patch": true,
+        "test_witness": true,
+        "integration_witness": true,
+        "land_gate": true,
+        "story": true,
+        "acceptance": true,
+        "verification_witnesses": true,
+        "independent_review": true,
+        "adversarial_witness": true,
+        "brief_or_requirement": true,
+        "readiness_gate": true,
+        "second_human_land_signer": true
+      }
+    },
+    "review": {
+      "role_separation": true,
+      "model_family_diversity": true
+    },
+    "scale_down_requires": "human_verdict",
+    "authority": {
+      "replace_policy": [
+        "human_gate"
+      ]
+    },
+    "integration_plan": {
+      "commands": [
+        {
+          "argv": [
+            "true"
+          ],
+          "cwd": ".",
+          "timeout_ms": 60000
+        }
+      ]
+    },
+    "claim_types": [
+      "thread",
+      "constraint",
+      "brief",
+      "requirement",
+      "story",
+      "acceptance",
+      "scale_assertion",
+      "patch",
+      "review",
+      "verdict",
+      "land",
+      "gate",
+      "retract",
+      "redact",
+      "key",
+      "policy_update"
+    ]
+  }
+}

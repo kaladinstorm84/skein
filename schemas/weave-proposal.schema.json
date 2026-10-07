@@ -1,0 +1,29 @@
+{
+  "$id": "https://skein.dev/schema/v1/weave-proposal.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein WeaveProposal (kind weave-proposal)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "review_ids",
+    "verification_witness_ids",
+    "integration_witness_id",
+    "validation_policy_hash"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "proposal_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "review_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "verification_witness_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "integration_witness_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "validation_policy_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

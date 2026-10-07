@@ -1,0 +1,47 @@
+{
+  "$id": "https://skein.dev/schema/v1/witnesses/command.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "command_plan_hash",
+    "exit_status",
+    "stdout_blob_id",
+    "stderr_blob_id",
+    "started_at",
+    "finished_at"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "type": "string", "enum": ["test", "adversarial"] },
+    "strategy": {
+      "type": "string",
+      "enum": [
+        "generic",
+        "red-green",
+        "reproduction-resolution",
+        "before-after",
+        "invariant",
+        "static-analysis",
+        "benchmark",
+        "inspection"
+      ]
+    },
+    "patch_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "command_plan_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "exit_status": { "type": "integer", "minimum": 0, "maximum": 255 },
+    "stdout_blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "stderr_blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "started_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "finished_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    }
+  }
+}

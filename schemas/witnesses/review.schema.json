@@ -1,0 +1,12 @@
+{
+  "$id": "https://skein.dev/schema/v1/witnesses/review.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "review_claim_id"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "review" },
+    "review_claim_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

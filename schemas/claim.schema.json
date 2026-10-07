@@ -1,0 +1,53 @@
+{
+  "$id": "https://skein.dev/schema/v1/claim.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein claim payload (kind claim)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "type",
+    "parents",
+    "accountable_human",
+    "role",
+    "model",
+    "body"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "type": {
+      "type": "string",
+      "enum": [
+        "thread",
+        "constraint",
+        "brief",
+        "requirement",
+        "story",
+        "acceptance",
+        "scale_assertion",
+        "patch",
+        "review",
+        "verdict",
+        "land",
+        "gate",
+        "retract",
+        "redact",
+        "key",
+        "policy_update"
+      ]
+    },
+    "thread": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "parents": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "accountable_human": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "role": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "model": { "type": "string", "maxLength": 256 },
+    "supersedes": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "body": { "type": "object" }
+  }
+}

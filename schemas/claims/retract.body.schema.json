@@ -1,0 +1,15 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/retract.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["withdrawn_land_id", "reason", "operations"],
+  "properties": {
+    "withdrawn_land_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "reason": { "type": "string", "minLength": 1 },
+    "operations": {
+      "type": "array",
+      "description": "Forward patch operations producing the corrected state. Same encoding as patch.body operations."
+    }
+  }
+}

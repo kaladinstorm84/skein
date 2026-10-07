@@ -1,0 +1,19 @@
+{
+  "op": "object_id",
+  "kind": "proposal",
+  "payload": {
+    "schema_version": 1,
+    "repository_id": "09eb903466b847951836c5bd3365aa5a63f61708d9e955985981f7e254f7e5f6",
+    "target_weave_id": "5e74e41b9d3b7408cedf41b3b405e0b4a79096d2d97fe3bfcd9ab6df985286c6",
+    "target_state_root": "cef3d661e4dd7ddc29be947eb6d6a18f897df3c9cddaed4dab683653fdd8a0fb",
+    "claim_ids": [
+      "26d039a75c0e7ffe4801dd005a4f4a52279804d5861ce9a70c5f0a4a6aebe273"
+    ],
+    "policy_id": "skein.bootstrap.v1",
+    "validation_policy_hash": "4ccde27acc309e97f3d3eb326a246166f3658da2e3b6ccc027c8eb3526b1a066",
+    "constraint_ids": [],
+    "integration_plan_hash": "c822299d688f3374c5d65f7ac0029e197452d61e1426fde43537ef533dbbf294",
+    "composed_state_root": "540f7ef5c3a28cb5a549ba8fc277c3eab602335d8cb0802aaaad234ac4813459",
+    "resulting_policy_hash": "4ccde27acc309e97f3d3eb326a246166f3658da2e3b6ccc027c8eb3526b1a066"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/key.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["action", "credential_id", "algorithm"],
+  "properties": {
+    "action": { "type": "string", "enum": ["register", "revoke"] },
+    "credential_id": { "type": "string", "minLength": 1 },
+    "algorithm": { "type": "string", "enum": ["development-key", "webauthn"] },
+    "public_key": { "type": "string" },
+    "principal_id": { "type": "string", "minLength": 1 }
+  }
+}

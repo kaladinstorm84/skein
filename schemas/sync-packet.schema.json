@@ -1,0 +1,24 @@
+{
+  "$id": "https://skein.dev/schema/v1/sync-packet.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Missing-object sync packet. Phase 1 MUST parse and MUST NOT execute as a remote update.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "have_object_ids", "want_object_ids", "weave_pointers"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "have-want" },
+    "have_object_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "want_object_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "weave_pointers": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    }
+  }
+}

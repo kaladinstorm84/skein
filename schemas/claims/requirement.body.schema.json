@@ -1,0 +1,11 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/requirement.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identifier", "text"],
+  "properties": {
+    "identifier": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "text": { "type": "string", "minLength": 1 }
+  }
+}

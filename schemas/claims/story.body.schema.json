@@ -1,0 +1,21 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/story.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "outcome", "in_scope", "out_of_scope", "acceptance_ids", "constraint_ids"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "outcome": { "type": "string", "minLength": 1 },
+    "in_scope": { "type": "string" },
+    "out_of_scope": { "type": "string" },
+    "acceptance_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "constraint_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    }
+  }
+}

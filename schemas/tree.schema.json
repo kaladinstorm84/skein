@@ -1,0 +1,24 @@
+{
+  "$id": "https://skein.dev/schema/v1/tree.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein canonical tree (kind tree)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "entries"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "kind", "blob_id"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1, "maxLength": 4096 },
+          "kind": { "const": "file" },
+          "blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

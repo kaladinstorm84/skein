@@ -1,0 +1,11 @@
+{
+  "empty_tree_root": "cef3d661e4dd7ddc29be947eb6d6a18f897df3c9cddaed4dab683653fdd8a0fb",
+  "bootstrap_policy_hash": "4ccde27acc309e97f3d3eb326a246166f3658da2e3b6ccc027c8eb3526b1a066",
+  "bootstrap_policy_id": "skein.bootstrap.v1",
+  "development_key_seed_hex": "4242424242424242424242424242424242424242424242424242424242424242",
+  "development_key_public_hex": "2152f8d19b791d24453242e15f2eab6cb7cffa7b6a5ed30097960e069881db12",
+  "root_weave_id": "5e74e41b9d3b7408cedf41b3b405e0b4a79096d2d97fe3bfcd9ab6df985286c6",
+  "example_weave_proposal_id": "6e0723b8e7d6b406309bfe57a50ebafde99091feb5d087d2f2fd66ff36c53c5d",
+  "example_proposal_id": "24c58664a8d20cf44f4f5d512e861456026bc06e8bc0b970a8224863ab362d8e",
+  "integration_plan_hash": "c822299d688f3374c5d65f7ac0029e197452d61e1426fde43537ef533dbbf294"
+}

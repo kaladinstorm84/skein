@@ -1,0 +1,17 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/thread.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "kind", "initial_scale", "target_weave"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "kind": { "type": "string", "enum": ["feature", "fix", "chore", "policy", "other"] },
+    "initial_scale": { "type": "string", "enum": ["trivial", "standard", "deep"] },
+    "target_weave": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    }
+  }
+}

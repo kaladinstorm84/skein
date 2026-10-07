@@ -1,0 +1,21 @@
+{
+  "op": "weave_replay",
+  "weaves": [
+    {
+      "schema_version": 1,
+      "parent": null,
+      "land": null,
+      "policy_id": "skein.bootstrap.v1",
+      "policy_hash": "4ccde27acc309e97f3d3eb326a246166f3658da2e3b6ccc027c8eb3526b1a066",
+      "state_root": "cef3d661e4dd7ddc29be947eb6d6a18f897df3c9cddaed4dab683653fdd8a0fb"
+    },
+    {
+      "schema_version": 1,
+      "parent": "5e74e41b9d3b7408cedf41b3b405e0b4a79096d2d97fe3bfcd9ab6df985286c6",
+      "land": "abababababababababababababababababababababababababababababababab",
+      "policy_id": "skein.bootstrap.v1",
+      "policy_hash": "4ccde27acc309e97f3d3eb326a246166f3658da2e3b6ccc027c8eb3526b1a066",
+      "state_root": "540f7ef5c3a28cb5a549ba8fc277c3eab602335d8cb0802aaaad234ac4813459"
+    }
+  ]
+}

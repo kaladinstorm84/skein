@@ -1,0 +1,24 @@
+{
+  "op": "compose",
+  "baseline": {
+    "keep.txt": "7f3103cbc13decf0168de22e870a971c45f6a47cfa3334f197a7c4da2ae1b25b",
+    "gone.txt": "7f3103cbc13decf0168de22e870a971c45f6a47cfa3334f197a7c4da2ae1b25b"
+  },
+  "blobs": {
+    "7f3103cbc13decf0168de22e870a971c45f6a47cfa3334f197a7c4da2ae1b25b": {
+      "utf8": "one\n"
+    }
+  },
+  "path_mode": "case-sensitive",
+  "operations": [
+    {
+      "op": "rename",
+      "from": "keep.txt",
+      "to": "kept.txt"
+    },
+    {
+      "op": "remove",
+      "path": "gone.txt"
+    }
+  ]
+}

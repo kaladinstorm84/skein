@@ -1,0 +1,13 @@
+{
+  "$id": "https://skein.dev/schema/v1/repository.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Repository descriptor. Identity is blob_id of its Canonical JSON v1 bytes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "path_mode", "hash_alg"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "path_mode": { "type": "string", "enum": ["case-sensitive", "case-insensitive"] },
+    "hash_alg": { "const": "sha256" }
+  }
+}

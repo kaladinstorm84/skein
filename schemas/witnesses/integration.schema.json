@@ -1,0 +1,56 @@
+{
+  "$id": "https://skein.dev/schema/v1/witnesses/integration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "proposal_id",
+    "target_state_root",
+    "composed_state_root",
+    "runner_image_digest",
+    "toolchain_fingerprint",
+    "command_plan_hash",
+    "allowed_environment_hash",
+    "network_policy",
+    "declared_inputs",
+    "declared_outputs",
+    "exit_status",
+    "started_at",
+    "finished_at",
+    "stdout_blob_id",
+    "stderr_blob_id"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "integration" },
+    "proposal_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "target_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "composed_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "runner_image_digest": { "type": "string", "minLength": 1 },
+    "toolchain_fingerprint": { "type": "string", "minLength": 1 },
+    "command_plan_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "allowed_environment_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "network_policy": { "type": "string", "enum": ["disabled", "allowlist"] },
+    "declared_inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "declared_outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exit_status": { "type": "integer", "minimum": 0, "maximum": 255 },
+    "started_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "finished_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "stdout_blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "stderr_blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

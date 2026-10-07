@@ -1,0 +1,9 @@
+{
+  "op": "object_id",
+  "kind": "witness",
+  "payload": {
+    "schema_version": 1,
+    "kind": "review",
+    "review_claim_id": "abababababababababababababababababababababababababababababababab"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "op": "compose",
+  "baseline": {
+    "a.txt": "7f3103cbc13decf0168de22e870a971c45f6a47cfa3334f197a7c4da2ae1b25b"
+  },
+  "blobs": {
+    "7f3103cbc13decf0168de22e870a971c45f6a47cfa3334f197a7c4da2ae1b25b": {
+      "utf8": "one\n"
+    }
+  },
+  "path_mode": "case-sensitive",
+  "operations": [
+    {
+      "op": "remove",
+      "path": "a.txt"
+    },
+    {
+      "op": "edit",
+      "path": "a.txt",
+      "line_ending": "lf",
+      "hunks": [
+        {
+          "start_line": 0,
+          "end_line": 1,
+          "lines": [
+            "x"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$id": "https://skein.dev/schema/v1/proposal.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein Proposal (kind proposal)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "repository_id",
+    "target_weave_id",
+    "target_state_root",
+    "claim_ids",
+    "policy_id",
+    "validation_policy_hash",
+    "constraint_ids",
+    "integration_plan_hash",
+    "composed_state_root"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "repository_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "target_weave_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "target_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "claim_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "policy_id": { "type": "string", "minLength": 1 },
+    "validation_policy_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "constraint_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    },
+    "integration_plan_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "composed_state_root": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "resulting_policy_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "When present, this Proposal is a policy-transition proposal."
+    }
+  }
+}

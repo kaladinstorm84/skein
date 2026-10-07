@@ -1,0 +1,11 @@
+{
+  "$id": "https://skein.dev/schema/v1/claims/redact.body.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["blob_id", "reason"],
+  "properties": {
+    "blob_id": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "reason": { "type": "string", "minLength": 1 }
+  }
+}

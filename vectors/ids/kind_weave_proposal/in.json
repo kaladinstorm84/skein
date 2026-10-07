@@ -1,0 +1,12 @@
+{
+  "op": "object_id",
+  "kind": "weave-proposal",
+  "payload": {
+    "schema_version": 1,
+    "proposal_id": "1111111111111111111111111111111111111111111111111111111111111111",
+    "review_ids": [],
+    "verification_witness_ids": [],
+    "integration_witness_id": "2222222222222222222222222222222222222222222222222222222222222222",
+    "validation_policy_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  }
+}

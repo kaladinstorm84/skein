@@ -1,0 +1,16 @@
+{
+  "op": "object_id",
+  "kind": "proposal",
+  "payload": {
+    "schema_version": 1,
+    "repository_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_weave_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "target_state_root": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "claim_ids": [],
+    "policy_id": "skein.bootstrap.v1",
+    "validation_policy_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "constraint_ids": [],
+    "integration_plan_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "composed_state_root": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  }
+}

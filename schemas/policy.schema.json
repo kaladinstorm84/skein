@@ -1,0 +1,120 @@
+{
+  "$id": "https://skein.dev/schema/v1/policy.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skein policy pack (kind policy)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "policy_id",
+    "glob_grammar",
+    "gate_reuse",
+    "scales",
+    "review",
+    "scale_down_requires",
+    "authority",
+    "integration_plan",
+    "claim_types"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "policy_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "glob_grammar": { "const": "skein.glob.v1" },
+    "gate_reuse": { "type": "string", "enum": ["refuse"] },
+    "scales": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["trivial", "standard", "deep"],
+      "properties": {
+        "trivial": { "$ref": "#/$defs/scale_requirements" },
+        "standard": { "$ref": "#/$defs/scale_requirements" },
+        "deep": { "$ref": "#/$defs/scale_requirements" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role_separation", "model_family_diversity"],
+      "properties": {
+        "role_separation": { "type": "boolean" },
+        "model_family_diversity": { "type": "boolean" }
+      }
+    },
+    "scale_down_requires": { "const": "human_verdict" },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["replace_policy"],
+      "properties": {
+        "replace_policy": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["human_gate"] }
+        }
+      }
+    },
+    "integration_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commands"],
+      "properties": {
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["argv", "cwd", "timeout_ms"],
+            "properties": {
+              "argv": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string" }
+              },
+              "cwd": { "type": "string", "minLength": 1 },
+              "timeout_ms": { "type": "integer", "minimum": 1, "maximum": 86400000 }
+            }
+          }
+        }
+      }
+    },
+    "claim_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "scale_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patch",
+        "test_witness",
+        "integration_witness",
+        "land_gate",
+        "story",
+        "acceptance",
+        "verification_witnesses",
+        "independent_review",
+        "adversarial_witness",
+        "brief_or_requirement",
+        "readiness_gate",
+        "second_human_land_signer"
+      ],
+      "properties": {
+        "patch": { "type": "boolean" },
+        "test_witness": { "type": "boolean" },
+        "integration_witness": { "type": "boolean" },
+        "land_gate": { "type": "boolean" },
+        "story": { "type": "boolean" },
+        "acceptance": { "type": "boolean" },
+        "verification_witnesses": { "type": "boolean" },
+        "independent_review": { "type": "boolean" },
+        "adversarial_witness": { "type": "boolean" },
+        "brief_or_requirement": { "type": "boolean" },
+        "readiness_gate": { "type": "boolean" },
+        "second_human_land_signer": { "type": "boolean" }
+      }
+    }
+  }
+}
