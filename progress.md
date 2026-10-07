@@ -1,5 +1,9 @@
 # Progress
 
+## 2026-10-07 — One-line installers
+
+Added `install.sh` (Linux/macOS, POSIX sh) and `install.ps1` (Windows, PowerShell 5.1+). Each downloads the right binary from the latest GitHub release (or a tag pinned via `SKEIN_VERSION`), verifies it against the release `SHA256SUMS.txt` (which has CRLF line endings — the sh script strips CRs before parsing), and installs it as `skein` (`/usr/local/bin` or `~/.local/bin`) / `skein.exe` (`%LOCALAPPDATA%\Programs\skein`, added to the user PATH). `SKEIN_INSTALL_DIR` overrides the target. README gained an Install section with the one-liners (`curl ... | sh` and `irm ... | iex`) and the Layout list now includes both scripts. Both were tested against the live v0.7.0 release: sh on linux/amd64 (latest + pinned, shellcheck clean), ps1 under pwsh 7.4 on Linux (parse, `-File`, and `irm | iex`-equivalent runs).
+
 ## 2026-10-07 — MIT license
 
 Added `LICENSE` (MIT, Copyright 2026 Matt Anderson) and a License section on the README. GitHub will detect it after this file is on `main`.
