@@ -1,6 +1,7 @@
 # Skein
 
 [![Build](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml/badge.svg)](https://github.com/kaladinstorm84/skein/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/kaladinstorm84/skein)](https://github.com/kaladinstorm84/skein/releases/latest)
 
 A version control system for agentic development. **It is not Git.**
 
@@ -140,7 +141,7 @@ Later-phase objects are **parsed and refused**. They are never treated as trustw
 
 ## Quick start
 
-Requires [Go 1.22+](https://go.dev/dl/).
+Requires [Go 1.22+](https://go.dev/dl/), or download a binary from [Releases](https://github.com/kaladinstorm84/skein/releases/latest).
 
 ```text
 git clone https://github.com/kaladinstorm84/skein.git
@@ -241,3 +242,8 @@ tools/              Python spec oracle
 demo.ps1            End-to-end land loop
 .github/workflows/  Build and test (GitHub Actions)
 ```
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2026 Matt Anderson.
+

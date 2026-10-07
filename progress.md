@@ -1,5 +1,17 @@
 # Progress
 
+## 2026-10-07 — MIT license
+
+Added `LICENSE` (MIT, Copyright 2026 Matt Anderson) and a License section on the README. GitHub will detect it after this file is on `main`.
+
+## 2026-10-07 — GitHub discoverability
+
+Repo About was empty. Set description, homepage (latest release), and topics (`version-control`, `vcs`, `cli`, `golang`, `go`, `agents`, `ai`, `content-addressed`).
+
+## 2026-10-07 — GitHub release v0.7.0
+
+Published [v0.7.0](https://github.com/kaladinstorm84/skein/releases/tag/v0.7.0) from `main`: Phase 1 CLI binaries for windows/amd64, linux/amd64, linux/arm64, darwin/amd64, darwin/arm64, plus `SHA256SUMS.txt`. README now links the latest release.
+
 ## 2026-10-07 — Fix ignored cmd/skein
 
 GitHub builds failed with `cmd/skein: directory not found` because `.gitignore` listed `skein`, which matches any path named `skein` (including `cmd/skein`). The ignore is now root-only (`/skein`, `/skein-*`). `cmd/skein/main.go` can be tracked and pushed.
