@@ -139,9 +139,34 @@ Phase 1 is a **local kernel**. It is usable for a trivial land loop today.
 
 Later-phase objects are **parsed and refused**. They are never treated as trustworthy admission.
 
+## Install
+
+One line, no Go required. Both installers download the binary for your platform from the [latest release](https://github.com/kaladinstorm84/skein/releases/latest), verify it against the release `SHA256SUMS.txt`, and install it as `skein`.
+
+Linux and macOS (sh):
+
+```text
+curl -fsSL https://raw.githubusercontent.com/kaladinstorm84/skein/main/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```text
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/kaladinstorm84/skein/main/install.ps1 | iex"
+```
+
+Defaults: `/usr/local/bin` if writable, else `~/.local/bin` (Linux/macOS); `%LOCALAPPDATA%\Programs\skein`, added to your user `PATH` (Windows). Both accept environment variables to override:
+
+| Variable | Meaning |
+| --- | --- |
+| `SKEIN_VERSION` | Release tag to install, e.g. `v0.7.0` (default: latest) |
+| `SKEIN_INSTALL_DIR` | Target directory |
+
+For example: `SKEIN_VERSION=v0.7.0 curl -fsSL https://raw.githubusercontent.com/kaladinstorm84/skein/main/install.sh | sh`
+
 ## Quick start
 
-Requires [Go 1.22+](https://go.dev/dl/), or download a binary from [Releases](https://github.com/kaladinstorm84/skein/releases/latest).
+Install as above, build from source with [Go 1.22+](https://go.dev/dl/), or download a binary from [Releases](https://github.com/kaladinstorm84/skein/releases/latest).
 
 ```text
 git clone https://github.com/kaladinstorm84/skein.git
@@ -240,6 +265,8 @@ vectors/            Normative fixtures
 abi/phase1.md       Commands, agent verbs, errors
 tools/              Python spec oracle
 demo.ps1            End-to-end land loop
+install.sh          One-line installer (Linux/macOS)
+install.ps1         One-line installer (Windows)
 .github/workflows/  Build and test (GitHub Actions)
 ```
 

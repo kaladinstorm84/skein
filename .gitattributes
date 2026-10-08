@@ -1,3 +1,4 @@
 vectors/**/*.json text eol=lf
+install.sh text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
